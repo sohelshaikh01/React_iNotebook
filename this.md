@@ -16,5 +16,12 @@ R43: Creating MongoDB Connection
 
 R44: How to structure the Application
 
-- Creating Mongoose models:
+- Creating Mongoose models: With Capital Names
+    For User go mongoose docs and create schemas
+    UserSchema and NotesSchema
 - Creating Folder for routes
+    Auth.js and Notes.js
+
+R45: Storing Data into Database
+    req.body -->
+    user import
