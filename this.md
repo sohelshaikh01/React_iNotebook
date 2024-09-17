@@ -25,3 +25,5 @@ R44: How to structure the Application
 R45: Storing Data into Database
     req.body -->
     user import
+
+R46: Validation on Data Types
