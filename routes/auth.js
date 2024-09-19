@@ -1,8 +1,11 @@
 import express from 'express';
 import User from '../models/User.js';
-import { body, validationResult } from 'express-validator'; // Correct import
-
+import { body, validationResult } from 'express-validator'; 
+import bcrypt from 'bcryptjs';
 const router = express.Router();
+
+const JWT_SECRET = 'Harryisagoodb$oy';
+import jwt from 'jsonwebtoken';
 
 // Create a User using POST "/api/auth/createuser". Doesn't require auth
 router.post('/createuser', [
@@ -24,13 +27,27 @@ router.post('/createuser', [
             return res.status(400).json({error: "Sorry a user with this email already exists"});
         }
 
+        const salt = await  bcrypt.genSalt(10);
+        const secPass = await bcrypt.hash(req.body.password, salt);
+
         // Saving data to User
         user = await User.create({
             name: req.body.name,
             email: req.body.email,
-            password: req.body.password,
-        }); 
-        res.status("User created successfully");
+            password: secPass,
+        });
+
+        const data = {
+            user:{
+                id: user.id
+            } 
+        }
+        
+        // JWT Sign (data and secret); // Synchronours method
+        const authToken =  jwt.sign(data, JWT_SECRET);
+
+        res.json(authToken);
+
     }
 
     catch(error) {

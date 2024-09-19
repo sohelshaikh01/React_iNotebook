@@ -50,3 +50,12 @@ R48: Understanding passWord hashing and salt and pepper:
 -- Adding string with password know as the salt.
 -- Ex: Kirti may exist but not addition string.
 -- Additional more pepper on it.
+
+R49: Applying hashing in app for password
+-- Using `npm install bcryptjs`
+-- import the file then use the function
+-- we return token while user login in account.
+-- It is a way to verify the user.
+-- Using `npm install jsonwebtoken`.
+
+-- Create Key and then jwt sign method.
