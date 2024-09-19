@@ -27,3 +27,26 @@ R45: Storing Data into Database
     user import
 
 R46: Validation on Data Types
+- Using express validation and install
+-- npm install --save express-validator
+-- Adding express-validator / its docs
+-- Then create.then.catch.res.json
+
+R47: Create ThunderClient Collection to manage request
+-- Created user proper error
+
+-- Creating thunderclient collection
+-> Create new folder
+-> New Request User
+
+R48: Understanding passWord hashing and salt and pepper:
+
+-- Normal password are not store in database, they can be hacked from database.
+-- We use hash / hashing which is just make it from normal to complex combination of characeters, symbols and numbers.
+-- Hash is get Hashed it backend and not match the original one.
+
+-- Normal and common password are present in table of hacker such as rainbow tables with 3 billion entries.
+-- For this we use salt method to remove this limitation.
+-- Adding string with password know as the salt.
+-- Ex: Kirti may exist but not addition string.
+-- Additional more pepper on it.

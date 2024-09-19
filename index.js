@@ -5,7 +5,7 @@ import notesRouter from './routes/notesAuth.js';
 
 connectToMongo();
 const app = express(); // Middleware
-const port = 3000;
+const port = 5000;
 
 app.use(express.json());
 
