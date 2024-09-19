@@ -59,3 +59,9 @@ R49: Applying hashing in app for password
 -- Using `npm install jsonwebtoken`.
 
 -- Create Key and then jwt sign method.
+
+R50: Creating Login Endpoint and sending auth token
+-- Creating new login `route` to return auth token
+
+
+R51: Creating middleware to decode the user from JWT
