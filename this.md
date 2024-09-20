@@ -65,3 +65,5 @@ R50: Creating Login Endpoint and sending auth token
 
 
 R51: Creating middleware to decode the user from JWT
+-- Creating New route endpoint
+-- IN this app if I want to make it scalable for future to add more things like blog, shop then I will add middleware. 

@@ -3,11 +3,12 @@ import User from '../models/User.js';
 import { body, validationResult } from 'express-validator'; 
 import bcrypt from 'bcryptjs';
 const router = express.Router();
+import fetchUser from '../middleware/fetchUser.js';
 
-const JWT_SECRET = 'Harryisagoodb$oy';
+const JWT_SECRET = 'Iam$goodboy';
 import jwt from 'jsonwebtoken';
 
-// Create a User using POST "/api/auth/createuser". Doesn't require auth
+// ROUTE 1: Create a User using POST "/api/auth/createuser". Doesn't require auth
 router.post('/createuser', [
     body('name', 'Enter a valid name').isLength({ min: 3 }),
     body('email', 'Enter a valid email').isEmail(),
@@ -45,7 +46,7 @@ router.post('/createuser', [
 
 });
 
-// Authenticate a User using: POST "/api/auth/login", No login required
+// ROUTE 2: Authenticate a User using: POST "/api/auth/login", No login required
 router.post('/login', [
     body('email', 'Enter a valid name').isEmail(),
     body('password', 'Password cannot be blank').exists(),
@@ -75,13 +76,27 @@ router.post('/login', [
         
         // JWT Sign (data and secret); // Synchronours method
         const authToken =  jwt.sign(data, JWT_SECRET);
-        res.json(authToken);
+        res.json({authToken: authToken});
     }
     catch(error) {
         console.log(error);
         res.status(500).send("Internal Server Error");
     }
 
+});
+
+// ROUTE 3: Get logged in User Details using: POST: "api/auth/getuser". Login required
+    router.post('/getuser', fetchUser, async(req, res) => {
+    try {
+        const userId = req.user.id;
+        const user = await User.findById(userId).select("password");
+        // Select except the password
+        res.send(user);
+    }
+    catch(error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
 });
 
 
