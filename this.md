@@ -2,13 +2,13 @@ This include `Backend` Folder but it will be different.
 It is here just for convinience.
 
 In backend folder: 
-npm init
+`npm init`
 name: inotebook-backend
 iNotebook - Your notebook on the cloud
 
 --> 
-npm i express
-npm i mongoose
+`npm i express`
+`npm i mongoose`
 
 R43: Creating MongoDB Connection
 - Express Boiler Plate
@@ -28,7 +28,7 @@ R45: Storing Data into Database
 
 R46: Validation on Data Types
 - Using express validation and install
--- npm install --save express-validator
+-- `npm install --save express-validator`
 -- Adding express-validator / its docs
 -- Then create.then.catch.res.json
 
@@ -67,3 +67,13 @@ R50: Creating Login Endpoint and sending auth token
 R51: Creating middleware to decode the user from JWT
 -- Creating New route endpoint
 -- IN this app if I want to make it scalable for future to add more things like blog, shop then I will add middleware. 
+
+
+R52: Creating Route to Fetch all Notes and also add notes
+-- This requires the login throught token(fetchUser) middleware.
+
+R53: Create Update Function 
+
+R54: Create Delete Function
+
+R55: Writing React Frontend
