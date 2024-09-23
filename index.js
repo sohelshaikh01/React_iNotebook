@@ -13,5 +13,5 @@ app.use('/api/auth', authRouter);
 app.use('/api/notes', notesRouter);
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`iNotebook is listening at http://localhost:${port}`);
 });
